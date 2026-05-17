@@ -1,0 +1,241 @@
+:root {
+  --vp-c-brand-1: #e94560;
+  --vp-c-brand-2: #ff6b81;
+  --vp-c-brand-3: #c0392b;
+  --vp-c-brand-soft: rgba(233, 69, 96, 0.14);
+
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(120deg, #e94560 30%, #ff6b81 70%);
+
+  --vp-button-brand-bg: #e94560;
+  --vp-button-brand-hover-bg: #c0392b;
+  --vp-button-brand-active-bg: #a93226;
+
+  --vp-button-brand-border: #e94560;
+  --vp-button-brand-hover-border: #c0392b;
+  --vp-button-brand-active-border: #a93226;
+
+  --vp-custom-block-tip-bg: rgba(233, 69, 96, 0.1);
+  --vp-custom-block-tip-border: #e94560;
+
+  --vp-c-bg: #1a1a2e;
+  --vp-c-bg-soft: #1e2a4a;
+  --vp-c-bg-soft-up: #16213e;
+  --vp-c-bg-alt: #16213e;
+  --vp-c-bg-elv: #1a1a2e;
+  --vp-c-bg-elv-up: #1e2a4a;
+
+  --vp-c-text-1: #ffffff;
+  --vp-c-text-2: #a0a0b0;
+  --vp-c-text-3: #7a7a8a;
+
+  --vp-c-divider: #2d3a5c;
+
+  --vp-code-block-bg: #0f131e;
+}
+
+.dark {
+  --vp-c-brand-1: #ff6b81;
+  --vp-c-brand-2: #e94560;
+  --vp-c-brand-3: #ff8a9e;
+
+  --vp-home-hero-name-background: linear-gradient(120deg, #ff6b81 30%, #ff8a9e 70%);
+
+  --vp-c-bg: #0d0d1a;
+  --vp-c-bg-soft: #13132a;
+  --vp-c-bg-soft-up: #1a1a2e;
+  --vp-c-bg-alt: #13132a;
+  --vp-c-bg-elv: #0d0d1a;
+  --vp-c-bg-elv-up: #1a1a2e;
+
+  --vp-c-text-1: #e8e8f0;
+  --vp-c-text-2: #8a8aa0;
+  --vp-c-text-3: #6a6a80;
+
+  --vp-c-divider: #1a1a40;
+
+  --vp-code-block-bg: #080816;
+}
+
+.VPHero .name {
+  font-size: 48px;
+}
+
+.VPHero .text {
+  font-size: 22px;
+  color: var(--vp-c-text-2);
+}
+
+.features-section {
+  padding: 48px 24px;
+  max-width: 1152px;
+  margin: 0 auto;
+}
+
+.features-section h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.feature-card {
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  padding: 24px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.feature-card:hover {
+  border-color: var(--vp-c-brand-1);
+  transform: translateY(-2px);
+}
+
+.feature-card .icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.feature-card h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.feature-card p {
+  font-size: 14px;
+  color: var(--vp-c-text-2);
+  line-height: 1.6;
+}
+
+.download-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.download-card {
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+.download-card .platform-icon {
+  width: 36px;
+  height: 36px;
+  margin: 0 auto 8px;
+  color: var(--vp-c-brand-1);
+}
+
+.download-card .platform-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.download-card h3 {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.download-card .file-name {
+  font-size: 12px;
+  color: var(--vp-c-text-3);
+  margin-bottom: 12px;
+  word-break: break-all;
+}
+
+.download-card .file-size {
+  font-size: 12px;
+  color: var(--vp-c-text-3);
+  margin-bottom: 8px;
+}
+
+.download-card .vp-button {
+  display: inline-block;
+  margin-top: 8px;
+}
+
+.version-info {
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.version-info .version-badge {
+  background: var(--vp-c-brand-1);
+  color: white;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.version-info .version-meta {
+  font-size: 14px;
+  color: var(--vp-c-text-2);
+}
+
+.version-info .release-notes-link {
+  margin-left: auto;
+  font-size: 14px;
+}
+
+.install-guide {
+  margin-top: 32px;
+}
+
+.install-guide h3 {
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+.install-guide pre {
+  margin-top: 8px;
+}
+
+.about-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.about-link-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  padding: 16px 20px;
+  text-decoration: none;
+  color: var(--vp-c-text-1);
+  transition: border-color 0.2s;
+}
+
+.about-link-card:hover {
+  border-color: var(--vp-c-brand-1);
+  text-decoration: none;
+}
+
+.about-link-card .link-icon {
+  font-size: 24px;
+}
+
+.about-link-card .link-text {
+  font-weight: 500;
+}
