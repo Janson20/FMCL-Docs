@@ -4,12 +4,10 @@ import { createReleasePlugin } from './release-plugin'
 const releasePlugin = createReleasePlugin()
 
 export default defineConfig({
-  base: '/FMCL-Docs/',
+  base: '/',
   title: '⛏ FMCL',
   description: 'Fusion Minecraft Launcher - A feature-rich Minecraft launcher',
-  head: [
-    ['link', { rel: 'icon', href: '/FMCL-Docs/favicon.ico' }],
-  ],
+  head: [],
   lastUpdated: true,
   cleanUrls: true,
 

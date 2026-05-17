@@ -74,7 +74,7 @@ function proxyDownload(filename: string): string {
 
 onMounted(async () => {
   try {
-    const resp = await fetch('/FMCL-Docs/release-data.json')
+    const resp = await fetch('/release-data.json')
     if (!resp.ok) throw new Error(`HTTP ${resp.status}`)
     const data: ReleaseResponse = await resp.json()
     version.value = data.version || '2.9.7'

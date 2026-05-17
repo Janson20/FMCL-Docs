@@ -134,7 +134,7 @@ export function createReleasePlugin(): Plugin {
     },
 
     configureServer(server) {
-      server.middlewares.use('/FMCL-Docs/release-data.json', async (_req, res) => {
+      server.middlewares.use('/release-data.json', async (_req, res) => {
         try {
           const payload = await getPayload()
           res.setHeader('Content-Type', 'application/json')
