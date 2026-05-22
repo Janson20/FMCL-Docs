@@ -22,12 +22,14 @@ export default defineConfig({
           { text: '首页', link: '/' },
           { text: '下载', link: '/download' },
           { text: '关于', link: '/about' },
+          { text: '用户协议', link: '/terms' },
         ],
         sidebar: {
           '/': [
             { text: '首页', link: '/' },
             { text: '下载', link: '/download' },
             { text: '关于', link: '/about' },
+            { text: '用户协议', link: '/terms' },
           ],
         },
         outline: { label: '本页目录' },
@@ -53,12 +55,14 @@ export default defineConfig({
           { text: 'Home', link: '/en/' },
           { text: 'Download', link: '/en/download' },
           { text: 'About', link: '/en/about' },
+          { text: 'Terms', link: '/en/terms' },
         ],
         sidebar: {
           '/en/': [
             { text: 'Home', link: '/en/' },
             { text: 'Download', link: '/en/download' },
             { text: 'About', link: '/en/about' },
+            { text: 'Terms', link: '/en/terms' },
           ],
         },
         outline: { label: 'On this page' },
