@@ -1,44 +1,93 @@
 ---
 title: Download
-layout: doc
 ---
 
-# 📥 Download FMCL
+# Download FMCL
 
 <DownloadSection lang="en" />
 
-## Installation Guide
+## Installation
 
-<h3><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:6px"><rect x="2" y="3" width="9" height="9"/><rect x="13" y="3" width="9" height="9"/><rect x="2" y="14" width="9" height="9"/><rect x="13" y="14" width="9" height="9"/></svg>Windows</h3>
-Double-click the `.exe` installer and follow the wizard. The installer bundles 7-Zip so no internet connection is required.
+### Windows x64
 
-<h3><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" style="vertical-align:middle;margin-right:6px"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>macOS</h3>
-Double-click the `.dmg` file and drag FMCL.app into the Applications folder.
+Double-click the `.exe` installer and follow the wizard. The installer bundles 7-Zip, so unpacking and installing
+work without an internet connection. The full build also bundles the .NET 10 SDK; the lite build is smaller and
+prompts you to install the SDK the first time you use GDK Bedrock Edition.
 
-If you see an unidentified developer warning on first launch, go to System Settings > Security & Privacy and click "Open Anyway", or run:
+- Installs to `%LOCALAPPDATA%\Programs\FMCL` and **never requires administrator rights**.
+- The product is a directory (`FMCL.exe` plus `_internal/`). Uninstalling only removes program files and keeps
+  `config.json`, `.minecraft`, accounts, playlists and achievements.
+- The installer is not code signed, so SmartScreen may warn you. Click **More info** then **Run anyway**, and make
+  sure the file came from this repository's Releases page.
 
-```bash
-xattr -cr /Applications/FMCL.app
-```
+### Linux x86_64
 
-<h3><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" style="vertical-align:middle;margin-right:6px"><ellipse cx="12" cy="9" rx="5" ry="6"/><circle cx="9.5" cy="8" r="1"/><circle cx="14.5" cy="8" r="1"/><ellipse cx="12" cy="11" rx="2" ry="1"/><path d="M8 16c0 3 2 5 4 5s4-2 4-5"/><path d="M8 16c-2 0-3 2-2 3"/><path d="M16 16c2 0 3 2 2 3"/></svg>Linux (DEB)</h3>
-
-```bash
-sudo dpkg -i FMCL-x.x.x-linux-amd64.deb
-```
-
-<h3><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" style="vertical-align:middle;margin-right:6px"><ellipse cx="12" cy="9" rx="5" ry="6"/><circle cx="9.5" cy="8" r="1"/><circle cx="14.5" cy="8" r="1"/><ellipse cx="12" cy="11" rx="2" ry="1"/><path d="M8 16c0 3 2 5 4 5s4-2 4-5"/><path d="M8 16c-2 0-3 2-2 3"/><path d="M16 16c2 0 3 2 2 3"/></svg>Linux (AppImage)</h3>
+Option 1: download the directory tarball and run it.
 
 ```bash
-chmod +x FMCL-x.x.x-x86_64.AppImage
-./FMCL-x.x.x-x86_64.AppImage
+tar -xzf FMCL-3.0.0-linux-x86_64.tar.gz
+cd FMCL && ./FMCL
 ```
 
-<h3><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:6px"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>From Source</h3>
+Option 2: use the install script to build from source or install a tarball, which also registers the `fmcl` command.
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/Janson20/FMCL/main/scripts/install.sh | bash
+
+# or use an already downloaded tarball
+bash scripts/install.sh /opt/fmcl --tarball ./FMCL-3.0.0-linux-x86_64.tar.gz
+```
+
+The script supports Debian / Ubuntu / Fedora / RHEL / CentOS / Arch / openSUSE. Running it requires the Qt 6 runtime
+and XCB packages (Debian/Ubuntu: `sudo apt install libegl1 libgl1 libxkbcommon-x11-0 libxcb-cursor0`).
+Configuration lives in `~/.config/fmcl/config.json` and logs in `~/.local/share/fmcl/fmcl.log`.
+
+Option 3: AppImage and DEB packages are not published for 3.0.0. Use the tarball or the install script instead.
+
+### macOS
+
+No `.dmg` or binary build is available yet; run FMCL from source, as described below. You will need Qt 6.7.3 and
+the build dependencies prepared yourself.
+
+### Run from source
+
+Dependencies are managed with [uv](https://docs.astral.sh/uv/) (`pyproject.toml` plus `uv.lock`). Do not run
+`pip install` inside `.venv`, otherwise the lock file and the actual environment will drift apart.
 
 ```bash
 git clone https://github.com/Janson20/FMCL.git
 cd FMCL
-pip install -r requirements-windows.txt
-python main.py
+
+# create .venv and install every pinned dependency (including Qt)
+uv sync
+
+# start the launcher
+uv run python main.py
 ```
+
+Python must be 3.10 or 3.11. On Windows you can also run the interpreter from the virtual environment directly:
+`.\venv\Scripts\python.exe main.py`.
+
+## Verifying downloads
+
+Linux attachments ship with a `SHA256SUMS` file:
+
+```bash
+sha256sum -c SHA256SUMS
+```
+
+On Windows use PowerShell:
+
+```powershell
+Get-FileHash .\FMCL-Setup-3.0.0.exe -Algorithm SHA256
+```
+
+## Older releases and 32-bit systems
+
+Starting with 3.0.0 only 64-bit Windows builds are published (PySide6 6.7.3 has no win32 wheels). On 32-bit systems
+keep using **2.12.6**; both versions share the same data directory, so your configuration and worlds carry over.
+
+To roll back, uninstall 3.0.0 and install 2.12.6. The install location is identical and uninstalling never deletes
+user data.
+
+Older releases are listed on [GitHub Releases](https://github.com/Janson20/FMCL/releases).

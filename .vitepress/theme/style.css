@@ -4,8 +4,7 @@
   --vp-c-brand-3: #c0392b;
   --vp-c-brand-soft: rgba(233, 69, 96, 0.14);
 
-  --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: linear-gradient(120deg, #e94560 30%, #ff6b81 70%);
+  --vp-home-hero-name-color: #e94560;
 
   --vp-button-brand-bg: #e94560;
   --vp-button-brand-hover-bg: #c0392b;
@@ -38,8 +37,7 @@
   --vp-c-brand-1: #ff6b81;
   --vp-c-brand-2: #e94560;
   --vp-c-brand-3: #ff8a9e;
-
-  --vp-home-hero-name-background: linear-gradient(120deg, #ff6b81 30%, #ff8a9e 70%);
+  --vp-home-hero-name-color: #ff6b81;
 
   --vp-c-bg: #0d0d1a;
   --vp-c-bg-soft: #13132a;
@@ -59,6 +57,14 @@
 
 .VPHero .name {
   font-size: 48px;
+}
+
+.VPHero .name .clip {
+  background: none;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-text-fill-color: currentColor;
+  color: var(--vp-home-hero-name-color);
 }
 
 .VPHero .text {
@@ -98,8 +104,16 @@
 }
 
 .feature-card .icon {
-  font-size: 32px;
-  margin-bottom: 12px;
+  display: inline-flex;
+  width: 30px;
+  height: 30px;
+  margin-bottom: 14px;
+  color: var(--vp-c-brand-1);
+}
+
+.feature-card .icon svg {
+  width: 100%;
+  height: 100%;
 }
 
 .feature-card h3 {
@@ -115,7 +129,7 @@
 
 .download-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 16px;
   margin-top: 24px;
 }
@@ -126,6 +140,9 @@
   border-radius: 12px;
   padding: 20px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .download-card .platform-icon {
@@ -145,10 +162,17 @@
   margin-bottom: 4px;
 }
 
+.download-card .card-subtitle {
+  font-size: 13px;
+  color: var(--vp-c-text-2);
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
 .download-card .file-name {
   font-size: 12px;
   color: var(--vp-c-text-3);
-  margin-bottom: 12px;
+  margin-bottom: 4px;
   word-break: break-all;
 }
 
@@ -161,6 +185,22 @@
 .download-card .vp-button {
   display: inline-block;
   margin-top: 8px;
+}
+
+.download-card .mirror-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.download-footer {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 28px;
+  font-size: 14px;
+  color: var(--vp-c-text-2);
 }
 
 .version-info {
@@ -194,17 +234,46 @@
   font-size: 14px;
 }
 
-.install-guide {
-  margin-top: 32px;
+.release-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: var(--vp-c-warning-soft);
+  border: 1px solid var(--vp-c-warning-1);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  font-size: 14px;
 }
 
-.install-guide h3 {
-  margin-top: 24px;
-  margin-bottom: 8px;
+.release-warning svg {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  margin-top: 1px;
 }
 
-.install-guide pre {
-  margin-top: 8px;
+.release-loading {
+  padding: 32px 0;
+  color: var(--vp-c-text-2);
+}
+
+.release-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.release-table th,
+.release-table td {
+  border-bottom: 1px solid var(--vp-c-divider);
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.release-table th {
+  color: var(--vp-c-text-2);
+  font-weight: 600;
 }
 
 .about-links {
@@ -233,7 +302,15 @@
 }
 
 .about-link-card .link-icon {
-  font-size: 24px;
+  display: inline-flex;
+  width: 22px;
+  height: 22px;
+  color: var(--vp-c-brand-1);
+}
+
+.about-link-card .link-icon svg {
+  width: 100%;
+  height: 100%;
 }
 
 .about-link-card .link-text {
